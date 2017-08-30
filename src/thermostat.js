@@ -4,14 +4,19 @@ var Thermostat = function() {
 }
 
 Thermostat.prototype.up = function() {
-  this.temp += 10;
+  if (this.powerMode == true && this.temp == 25) {
+    throw ("temperature cannot be higher then 25 degrees")
+  } else if (this.powerMode == false && this.temp == 35) {
+    throw ("temperature cannot be higher then 35 degrees")
+  }
+  this.temp++;
 }
 
 Thermostat.prototype.down = function() {
   if (this.temp < 10) {
-    throw ("temperature cannot be lower then 10");
+    throw ("temperature cannot be lower then 10 degrees");
   }
-  this.temp -= 10;
+  this.temp--;
 }
 
 Thermostat.prototype.reset = function() {
@@ -20,4 +25,14 @@ Thermostat.prototype.reset = function() {
 
 Thermostat.prototype.toggleMode = function() {
   this.powerMode = !this.powerMode;
+};
+
+Thermostat.prototype.printUsage = function() {
+  if (this.temp < 18) {
+    return "low usage";
+  } else if (this.temp < 25) {
+    return "medium usage";
+  } else {
+    return "high usage"
+  }
 };

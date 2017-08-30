@@ -33,6 +33,13 @@ describe('Thermostat', function() {
     })
   })
 
+  describe('#toggleMode', function() {
+    it("displays powermode status when toggling", function() {
+      expect(thermostat.toggleMode()).toEqual("Power mode off");
+      expect(thermostat.toggleMode()).toEqual("Power mode on");
+    })
+  })
+
   describe("#up", function() {
     it("makes the temperature go up by 1 degrees", function() {
       thermostat.up();

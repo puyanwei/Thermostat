@@ -25,6 +25,11 @@ Thermostat.prototype.reset = function() {
 
 Thermostat.prototype.toggleMode = function() {
   this.powerMode = !this.powerMode;
+  if (this.powerMode == false) {
+    return "Power mode off";
+  } else {
+    return "Power mode on";
+  }
 };
 
 Thermostat.prototype.printUsage = function() {

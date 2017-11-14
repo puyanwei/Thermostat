@@ -40,6 +40,21 @@ describe('Thermostat', function() {
     })
   })
 
+  describe('#powerModeOn', function() {
+    it("is turned on", function() {
+      thermostat.powerMode = false;
+      thermostat.powerModeOn();
+      expect(thermostat.powerMode).toEqual(true)
+    })
+  })
+
+  describe('#powerModeOff', function() {
+    it("is turned off", function() {
+      thermostat.powerModeOff();
+      expect(thermostat.powerMode).toEqual(false)
+    })
+  })
+
   describe("#up", function() {
     it("makes the temperature go up by 1 degrees", function() {
       thermostat.up();
@@ -83,23 +98,31 @@ describe('Thermostat', function() {
     })
   })
 
-  describe('#printUsage', function() {
+  describe('#lowUsage', function() {
     it("displays the current usage, which is low", function() {
       thermostat.temp = 15;
       expect(thermostat.printUsage()).toEqual("low usage")
     })
   });
 
-  describe('#printUsage', function() {
+  describe('#mediumUsage', function() {
     it("displays the current usage, which is medium", function() {
       thermostat.temp = 20;
       expect(thermostat.printUsage()).toEqual("medium usage")
     })
   });
-  describe('#printUsage', function() {
+
+  describe('#highUsage', function() {
     it("displays the current usage, which is high", function() {
       thermostat.temp = 27;
       expect(thermostat.printUsage()).toEqual("high usage")
     })
   });
+
+  describe('#showTemp', function() {
+    it('displays the current temperature', function() {
+      thermostat.temp = 32
+      expect(thermostat.showTemp()).toEqual(32)
+    })
+  })
 })

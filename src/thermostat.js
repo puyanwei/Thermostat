@@ -1,5 +1,8 @@
+const DEFAULT_TEMP = 20
+
+
 var Thermostat = function() {
-  this.temp = 20;
+  this.temp = DEFAULT_TEMP;
   this.powerMode = true
 }
 
@@ -20,7 +23,7 @@ Thermostat.prototype.down = function() {
 }
 
 Thermostat.prototype.reset = function() {
-  this.temp = 20;
+  this.temp = DEFAULT_TEMP;
 };
 
 Thermostat.prototype.toggleMode = function() {
@@ -40,4 +43,16 @@ Thermostat.prototype.printUsage = function() {
   } else {
     return "high usage"
   }
+}
+
+Thermostat.prototype.powerModeOn = function() {
+  this.powerMode = true;
+}
+
+Thermostat.prototype.powerModeOff = function() {
+  this.powerMode = false;
+}
+
+Thermostat.prototype.showTemp = function() {
+  return this.temp;
 };

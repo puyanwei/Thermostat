@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(() => {
   var thermostat = new Thermostat();
-  $('#temperature').text(thermostat.showTemp());
+  $('#temperature').text(thermostat.temp);
 });

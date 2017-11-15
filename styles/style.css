@@ -2,14 +2,17 @@
   font-size: 50px;
 }
 
+#background {
+}
+
 .low-usage {
-  color: green;
+  background: green;
 }
 
 .medium-usage {
-  color: black;
+  background: yellow;
 }
 
 .high-usage {
-  color: red;
+  background: red;
 }

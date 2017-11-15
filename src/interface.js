@@ -29,6 +29,6 @@ $(document).ready(() => {
 
   function updateTemperature() {
     $('#temperature').text(thermostat.temp);
-    $('#temperature').attr('class', thermostat.printUsage());
+    $('#background').attr('class', thermostat.printUsage());
   }
 });

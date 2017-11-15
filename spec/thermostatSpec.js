@@ -1,128 +1,125 @@
-describe('Thermostat', function() {
+describe('Thermostat', () => {
   var thermostat;
 
-  beforeEach(function() {
-    thermostat = new Thermostat();
-  })
+  beforeEach(() => (thermostat = new Thermostat()));
 
-  describe("#initialize", function() {
-    it("starting temperature is 20 degrees", function() {
+  describe('#initialize', () => {
+    it('starting temperature is 20 degrees', () => {
       expect(thermostat.temp).toEqual(20);
-    })
-  })
+    });
+  });
 
-  describe("#initialize", function() {
-    it("power saving mode is on by default", function() {
+  describe('#initialize', () => {
+    it('power saving mode is on by default', () => {
       expect(thermostat.powerMode).toBe(true);
-    })
-  })
+    });
+  });
 
-
-  describe('#reset', function() {
-    it("resets temperature to 20 degrees", function() {
+  describe('#reset', () => {
+    it('resets temperature to 20 degrees', () => {
       thermostat.temp = 50;
       thermostat.reset();
       expect(thermostat.temp).toEqual(20);
-    })
-  })
+    });
+  });
 
-  describe('#toggleMode', function() {
-    it("toggles the mode on and off", function() {
+  describe('#toggleMode', () => {
+    it('toggles the mode on and off', () => {
       thermostat.toggleMode();
       expect(thermostat.powerMode).toBe(false);
-    })
-  })
+    });
+  });
 
-  describe('#toggleMode', function() {
-    it("displays powermode status when toggling", function() {
-      expect(thermostat.toggleMode()).toEqual("Power mode off");
-      expect(thermostat.toggleMode()).toEqual("Power mode on");
-    })
-  })
+  describe('#toggleMode', () => {
+    it('displays powermode status when toggling', () => {
+      expect(thermostat.toggleMode()).toEqual('Power mode off');
+      expect(thermostat.toggleMode()).toEqual('Power mode on');
+    });
+  });
 
-  describe('#powerModeOn', function() {
-    it("is turned on", function() {
+  describe('#powerModeOn', () => {
+    it('is turned on', () => {
       thermostat.powerMode = false;
       thermostat.powerModeOn();
-      expect(thermostat.powerMode).toEqual(true)
-    })
-  })
+      expect(thermostat.powerMode).toEqual(true);
+    });
+  });
 
-  describe('#powerModeOff', function() {
-    it("is turned off", function() {
+  describe('#powerModeOff', () => {
+    it('is turned off', () => {
       thermostat.powerModeOff();
-      expect(thermostat.powerMode).toEqual(false)
-    })
-  })
+      expect(thermostat.powerMode).toEqual(false);
+    });
+  });
 
-  describe("#up", function() {
-    it("makes the temperature go up by 1 degrees", function() {
+  describe('#up', () => {
+    it('makes the temperature go up by 1 degrees', () => {
       thermostat.up();
       expect(thermostat.temp).toEqual(21);
-    })
-  })
+    });
+  });
 
-  describe("#down", function() {
-    it("makes the temperature go down by 1 degrees", function() {
+  describe('#down', () => {
+    it('makes the temperature go down by 1 degrees', () => {
       thermostat.down();
       expect(thermostat.temp).toEqual(19);
-    })
-  })
+    });
+  });
 
-  describe("#down", function() {
-    it("cannot go lower then 10", function() {
+  describe('#down', () => {
+    it('cannot go lower then 10', () => {
       thermostat.temp = 10;
-      thermostat.down()
-      expect(function() {
-        thermostat.down()
-      }).toThrow("temperature cannot be lower then 10 degrees");
-    })
-  })
+      thermostat.down();
+      expect(() => {
+        thermostat.down();
+      }).toThrow('temperature cannot be lower then 10 degrees');
+    });
+  });
 
-  describe('#up', function() {
-    it("cannot go higher then 25 when powermode is on", function() {
+  describe('#up', () => {
+    it('cannot go higher then 25 when powermode is on', () => {
       thermostat.temp = 25;
-      expect(function() {
-        thermostat.up()
-      }).toThrow("temperature cannot be higher then 25 degrees");
-    })
-  })
+      expect(() => {
+        thermostat.up();
+      }).toThrow('temperature cannot be higher then 25 degrees');
+    });
+  });
 
-  describe('#up', function() {
-    it("cannot go higher then 35 when powermode is off", function() {
+  describe('#up', () => {
+    it('cannot go higher then 35 when powermode is off', () => {
       thermostat.temp = 35;
-      thermostat.toggleMode()
-      expect(function() {
-        thermostat.up()
-      }).toThrow("temperature cannot be higher then 35 degrees");
-    })
-  })
+      thermostat.toggleMode();
+      expect(() => {
+        thermostat.up();
+      }).toThrow('temperature cannot be higher then 35 degrees');
+    });
+  });
 
-  describe('#lowUsage', function() {
-    it("displays the current usage, which is low", function() {
+  describe('#lowUsage', () => {
+    it('displays the current usage, which is low', () => {
       thermostat.temp = 15;
-      expect(thermostat.printUsage()).toEqual("low usage")
-    })
+      expect(thermostat.printUsage()).toEqual('low usage');
+    });
   });
 
-  describe('#mediumUsage', function() {
-    it("displays the current usage, which is medium", function() {
+  describe('#mediumUsage', () => {
+    it('displays the current usage, which is medium', () => {
       thermostat.temp = 20;
-      expect(thermostat.printUsage()).toEqual("medium usage")
-    })
+      expect(thermostat.printUsage()).toEqual('medium usage');
+    });
   });
 
-  describe('#highUsage', function() {
-    it("displays the current usage, which is high", function() {
+  describe('#highUsage', () => {
+    it('displays the current usage, which is high', () => {
       thermostat.temp = 27;
-      expect(thermostat.printUsage()).toEqual("high usage")
-    })
+      expect(thermostat.printUsage()).toEqual('high usage');
+    });
   });
 
-  describe('#showTemp', function() {
-    it('displays the current temperature', function() {
-      thermostat.temp = 32
-      expect(thermostat.showTemp()).toEqual(32)
-    })
-  })
-})
+  describe('#showTemp', () => {
+    it('displays the current temperature', () => {
+      thermostat.temp = 32;
+      expect(thermostat.showTemp()).toEqual(32);
+    });
+  });
+});

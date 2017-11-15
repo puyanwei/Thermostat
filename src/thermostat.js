@@ -1,6 +1,8 @@
+'use strict';
+
 const DEFAULT_TEMP = 20;
 
-var Thermostat = () => {
+var Thermostat = function() {
   this.temp = DEFAULT_TEMP;
   this.powerMode = true;
 };

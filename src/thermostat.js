@@ -22,7 +22,7 @@ Thermostat.prototype.up = function() {
 };
 
 Thermostat.prototype.down = function() {
-  if (this.temp < MIN_TEMP) {
+  if (this.temp <= MIN_TEMP) {
     throw 'temperature cannot be lower then 10 degrees';
   }
   this.temp--;

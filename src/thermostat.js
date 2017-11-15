@@ -13,15 +13,11 @@ var Thermostat = function() {
 };
 
 Thermostat.prototype.up = function() {
-  // if (this.powerMode == true && this.temp == MAX_TEMP_ON) {
-  //   throw 'temperature cannot be higher then 25 degrees';
-  // } else if (this.powerMode == false && this.temp == MAX_TEMP_OFF) {
-  //   throw 'temperature cannot be higher then 32 degrees';
-  // }
-  this.temp++;
-};
-
-Thermostat.prototype.increaseTemperature = function() {
+  if (this.powerMode == true && this.temp == MAX_TEMP_ON) {
+    throw 'temperature cannot be higher then 25 degrees';
+  } else if (this.powerMode == false && this.temp == MAX_TEMP_OFF) {
+    throw 'temperature cannot be higher then 32 degrees';
+  }
   this.temp++;
 };
 
@@ -36,13 +32,12 @@ Thermostat.prototype.reset = function() {
   this.temp = DEFAULT_TEMP;
 };
 
-Thermostat.prototype.toggleMode = function() {
-  this.powerMode = !this.powerMode;
-  if (this.powerMode == false) {
-    return 'Power mode off';
-  } else {
-    return 'Power mode on';
-  }
+Thermostat.prototype.on = function() {
+  this.powerMode = true;
+};
+
+Thermostat.prototype.off = function() {
+  this.powerMode = false;
 };
 
 Thermostat.prototype.printUsage = function() {

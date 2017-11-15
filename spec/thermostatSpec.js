@@ -28,7 +28,7 @@ describe('Thermostat', () => {
 
     it('cannot go higher then 32 when powermode is off', () => {
       thermostat.temp = 32;
-      thermostat.toggleMode();
+      thermostat.off();
       expect(() => {
         thermostat.up();
       }).toThrow('temperature cannot be higher then 32 degrees');
@@ -58,15 +58,18 @@ describe('Thermostat', () => {
     });
   });
 
-  describe('#toggleMode', () => {
-    it('toggles the mode on and off', () => {
-      thermostat.toggleMode();
-      expect(thermostat.powerMode).toBe(false);
+  describe('#on', () => {
+    it('toggles the mode on', () => {
+      thermostat.powerMode = false;
+      thermostat.on();
+      expect(thermostat.powerMode).toBe(true);
     });
+  });
 
-    it('displays powermode status when toggling', () => {
-      expect(thermostat.toggleMode()).toEqual('Power mode off');
-      expect(thermostat.toggleMode()).toEqual('Power mode on');
+  describe('#off', () => {
+    it('toggles the mode off', () => {
+      thermostat.off();
+      expect(thermostat.powerMode).toBe(false);
     });
   });
 

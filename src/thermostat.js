@@ -22,7 +22,7 @@ Thermostat.prototype.up = function() {
 };
 
 Thermostat.prototype.down = function() {
-  if (this.temp <= MIN_TEMP) {
+  if (this.temp == MIN_TEMP) {
     throw 'temperature cannot be lower then 10 degrees';
   }
   this.temp--;
@@ -42,11 +42,11 @@ Thermostat.prototype.off = function() {
 
 Thermostat.prototype.printUsage = function() {
   if (this.temp < LOW_USAGE) {
-    return 'low usage';
+    return 'low-usage';
   } else if (this.temp < MEDIUM_USAGE) {
-    return 'medium usage';
+    return 'medium-usage';
   } else {
-    return 'high usage';
+    return 'high-usage';
   }
 };
 

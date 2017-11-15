@@ -66,10 +66,11 @@ describe('Thermostat', () => {
     });
   });
 
-  describe('#off', () => {
-    it('toggles the mode off', () => {
-      thermostat.off();
-      expect(thermostat.powerMode).toBe(false);
+  describe('#on', () => {
+    it('toggles the mode on', () => {
+      thermostat.powerMode = false;
+      thermostat.on();
+      expect(thermostat.powerMode).toBe(true);
     });
   });
 

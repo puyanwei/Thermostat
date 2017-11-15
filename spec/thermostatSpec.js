@@ -7,11 +7,46 @@ describe('Thermostat', () => {
     it('starting temperature is 20 degrees', () => {
       expect(thermostat.temp).toEqual(20);
     });
-  });
 
-  describe('#initialize', () => {
     it('power saving mode is on by default', () => {
       expect(thermostat.powerMode).toBe(true);
+    });
+  });
+
+  describe('#up', () => {
+    it('makes the temperature go up by 1 degrees', () => {
+      thermostat.up();
+      expect(thermostat.temp).toEqual(21);
+    });
+
+    it('cannot go higher then 25 when powermode is on', () => {
+      thermostat.temp = 25;
+      expect(() => {
+        thermostat.up();
+      }).toThrow('temperature cannot be higher then 25 degrees');
+    });
+
+    it('cannot go higher then 32 when powermode is off', () => {
+      thermostat.temp = 32;
+      thermostat.toggleMode();
+      expect(() => {
+        thermostat.up();
+      }).toThrow('temperature cannot be higher then 32 degrees');
+    });
+  });
+
+  describe('#down', () => {
+    it('makes the temperature go down by 1 degrees', () => {
+      thermostat.down();
+      expect(thermostat.temp).toEqual(19);
+    });
+
+    it('cannot go lower then 10', () => {
+      thermostat.temp = 10;
+      thermostat.down();
+      expect(() => {
+        thermostat.down();
+      }).toThrow('temperature cannot be lower then 10 degrees');
     });
   });
 
@@ -28,9 +63,7 @@ describe('Thermostat', () => {
       thermostat.toggleMode();
       expect(thermostat.powerMode).toBe(false);
     });
-  });
 
-  describe('#toggleMode', () => {
     it('displays powermode status when toggling', () => {
       expect(thermostat.toggleMode()).toEqual('Power mode off');
       expect(thermostat.toggleMode()).toEqual('Power mode on');
@@ -49,49 +82,6 @@ describe('Thermostat', () => {
     it('is turned off', () => {
       thermostat.powerModeOff();
       expect(thermostat.powerMode).toEqual(false);
-    });
-  });
-
-  describe('#up', () => {
-    it('makes the temperature go up by 1 degrees', () => {
-      thermostat.up();
-      expect(thermostat.temp).toEqual(21);
-    });
-  });
-
-  describe('#down', () => {
-    it('makes the temperature go down by 1 degrees', () => {
-      thermostat.down();
-      expect(thermostat.temp).toEqual(19);
-    });
-  });
-
-  describe('#down', () => {
-    it('cannot go lower then 10', () => {
-      thermostat.temp = 10;
-      thermostat.down();
-      expect(() => {
-        thermostat.down();
-      }).toThrow('temperature cannot be lower then 10 degrees');
-    });
-  });
-
-  describe('#up', () => {
-    it('cannot go higher then 25 when powermode is on', () => {
-      thermostat.temp = 25;
-      expect(() => {
-        thermostat.up();
-      }).toThrow('temperature cannot be higher then 25 degrees');
-    });
-  });
-
-  describe('#up', () => {
-    it('cannot go higher then 35 when powermode is off', () => {
-      thermostat.temp = 35;
-      thermostat.toggleMode();
-      expect(() => {
-        thermostat.up();
-      }).toThrow('temperature cannot be higher then 35 degrees');
     });
   });
 

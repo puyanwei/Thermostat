@@ -1,6 +1,11 @@
 'use strict';
 
 const DEFAULT_TEMP = 20;
+const MIN_TEMP = 10;
+const MAX_TEMP_ON = 25;
+const MAX_TEMP_OFF = 32;
+const LOW_USAGE = 18;
+const MEDIUM_USAGE = 25;
 
 var Thermostat = function() {
   this.temp = DEFAULT_TEMP;
@@ -8,16 +13,16 @@ var Thermostat = function() {
 };
 
 Thermostat.prototype.up = function() {
-  if (this.powerMode == true && this.temp == 25) {
+  if (this.powerMode == true && this.temp == MAX_TEMP_ON) {
     throw 'temperature cannot be higher then 25 degrees';
-  } else if (this.powerMode == false && this.temp == 35) {
-    throw 'temperature cannot be higher then 35 degrees';
+  } else if (this.powerMode == false && this.temp == MAX_TEMP_OFF) {
+    throw 'temperature cannot be higher then 32 degrees';
   }
   this.temp++;
 };
 
 Thermostat.prototype.down = function() {
-  if (this.temp < 10) {
+  if (this.temp < MIN_TEMP) {
     throw 'temperature cannot be lower then 10 degrees';
   }
   this.temp--;
@@ -37,9 +42,9 @@ Thermostat.prototype.toggleMode = function() {
 };
 
 Thermostat.prototype.printUsage = function() {
-  if (this.temp < 18) {
+  if (this.temp < LOW_USAGE) {
     return 'low usage';
-  } else if (this.temp < 25) {
+  } else if (this.temp < MEDIUM_USAGE) {
     return 'medium usage';
   } else {
     return 'high usage';

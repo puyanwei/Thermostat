@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
   </head>
   <body id="background">
-      <section>
-      <h1>Current temperature is <span id="temperature"></span></h1>
+      <section id=buttons>
+      <h1>This manual temperature is <span id="manual-temperature">20</span></h1>
         <p>
           <button id="temperature-up">+</button>
           <button id="temperature-down">-</button>
@@ -21,7 +21,7 @@
         </p>
     </section>
     <section>
-      <h1>Current temperature in <span id="city"></span>: <p><span id="current-temperature">20</span>°C</p></h1>
+      <h1>Current temperature in <span id="city"></span><p><span id="city-temperature">20</span>°C</p></h1>
       <form id="select-city">
         <input id="current-city" type="text" placeholder="Enter a city"></input>
         <input type="submit"></input>

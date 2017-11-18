@@ -1,4 +1,12 @@
-#temperature {
+body {
+  text-align: center;
+}
+
+#manual-temperature {
+  font-size: 25px;
+}
+
+#city-temperature {
   font-size: 50px;
 }
 
@@ -6,11 +14,11 @@
 }
 
 .low-usage {
-  background: green;
+  background: lightblue;
 }
 
 .medium-usage {
-  background: yellow;
+  background: orange;
 }
 
 .high-usage {

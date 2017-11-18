@@ -40,7 +40,7 @@ $(document).ready(() => {
     var token = '&appid=72a46f472cd78125c67ce1ba75151860';
     var units = '&units=metric';
     $.get(url + token + units, function(data) {
-      $('#current-temperature').text(data.main.temp);
+      $('#current-temperature').text(Math.round(data.main.temp));
       $('#city').text(city);
     });
   }

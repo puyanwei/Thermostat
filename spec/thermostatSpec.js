@@ -92,21 +92,21 @@ describe('Thermostat', () => {
   describe('#lowUsage', () => {
     it('displays the current usage, which is low', () => {
       thermostat.temp = 15;
-      expect(thermostat.printUsage()).toEqual('low usage');
+      expect(thermostat.printUsage()).toEqual('low-usage');
     });
   });
 
   describe('#mediumUsage', () => {
     it('displays the current usage, which is medium', () => {
       thermostat.temp = 20;
-      expect(thermostat.printUsage()).toEqual('medium usage');
+      expect(thermostat.printUsage()).toEqual('medium-usage');
     });
   });
 
   describe('#highUsage', () => {
     it('displays the current usage, which is high', () => {
       thermostat.temp = 27;
-      expect(thermostat.printUsage()).toEqual('high usage');
+      expect(thermostat.printUsage()).toEqual('high-usage');
     });
   });
 

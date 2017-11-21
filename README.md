@@ -18,6 +18,8 @@ Go to the project folder and `open index.html`
 
 ## Features
 
+![screen shot 2017-11-21 at 2 17 15 pm](https://user-images.githubusercontent.com/14803518/33059902-486bd416-ced1-11e7-9f36-54a62b634e9a.png)
+
 - Starts with a default temperature of 20.
 - Minimum temperature is 10.
 - With Power Saving Mode on, the maximum temperature is 25, else when it is off it is 32.

@@ -42,7 +42,7 @@ describe('Thermostat', () => {
     });
 
     it('cannot go lower then 10', () => {
-      thermostat.temp = 10;
+      thermostat.temp = 11;
       thermostat.down();
       expect(() => {
         thermostat.down();

@@ -22,8 +22,7 @@ to the project folder and `open index.html`
 
 * Starts with a default temperature of 20.
 * Minimum temperature is 10.
-* With Power Saving Mode on, the maximum temperature is 25, else when it is off
-  it is 32.
+* With Power Saving Mode on, the maximum temperature is 25, else when it is off it is 32.
 * The reset button resets the temperature back to 20.
 * The background colour changes to blue when the temperature is lower than 18,
   red when it is over 25, and orange when it is in between the two.

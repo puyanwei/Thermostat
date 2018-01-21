@@ -49,4 +49,22 @@ $(document).ready(() => {
     var city = $("#current-city").val();
     displayWeather(city);
   });
+<<<<<<< HEAD
+=======
+
+  function displayWeather(city) {
+    var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city;
+    var token = "&appid=72a46f472cd78125c67ce1ba75151860";
+    var units = "&units=metric";
+    $.get(url + token + units, data => {
+      $("#city-temperature").text(Math.round(data.main.temp));
+      $("#city").text(data.name);
+    });
+  }
+
+  function updateTemperature() {
+    $("#manual-temperature").text(thermostat.temp);
+    $("#background").attr("class", thermostat.printUsage());
+  }
+>>>>>>> 00d4708c49ce75b6c71b46c565a240d8cffa66f0
 });
